@@ -1,0 +1,22 @@
+<template>
+  <h1>${heading}</h1>
+
+  <form submit.trigger="addTodo()">
+    <input type="text" value.bind="todoDescription">
+    <button type="submit">Add Todo</button>
+  </form>
+  <ul>
+    <li repeat.for="todo of todos">
+      <input type="checkbox" checked.bind="todo.done">
+      <span  class="${todo.done ? 'text-strike' : ''}">
+        ${todo.description}
+      </span>
+      <button click.trigger="removeTodo(todo)">Remove</button>
+    </li>    
+  </ul>
+  <style type="text/css">
+  	.text-strike {
+  		text-decoration: line-through; 
+  	}
+  </style>
+</template>
